@@ -34,11 +34,11 @@ class Conversation {
 
     public function __construct($data = null) {
         if ($data) {
-            $this->id = $data->id;
-            $this->type = $data->type;
-            $this->folderId = $data->folderId;
-            $this->draft = $data->isDraft;
-            $this->number = $data->number;
+            $this->id       = isset($data->id) ? $data->id : null;
+            $this->type     = isset($data->type) ? $data->type : null;
+            $this->folderId = isset($data->folderId) ? $data->folderId : null;
+            $this->draft    = isset($data->isDraft) ? $data->isDraft : null;
+            $this->number   = isset($data->number) ? $data->number : null;
 
             if (isset($data->owner)) {
                 $this->owner = new \HelpScout\model\ref\PersonRef($data->owner);
@@ -52,19 +52,19 @@ class Conversation {
                 $this->customer = new \HelpScout\model\ref\PersonRef($data->customer);
             }
 
-            $this->source = $data->source;
-            $this->threadCount = $data->threadCount;
-            $this->status = $data->status;
-            $this->subject = $data->subject;
-            $this->preview = $data->preview;
-            $this->createdBy = new \HelpScout\model\ref\PersonRef($data->createdBy);
+            $this->source      = isset($data->source) ? $data->source : null;
+            $this->threadCount = isset($data->threadCount) ? $data->threadCount : null;
+            $this->status      = isset($data->status) ? $data->status : null;
+            $this->subject     = isset($data->subject) ? $data->subject : null;
+            $this->preview     = isset($data->preview) ? $data->preview : null;
+            $this->createdBy   = new \HelpScout\model\ref\PersonRef($data->createdBy);
 
-            $this->createdAt = $data->createdAt;
-            $this->modifiedAt = $data->modifiedAt;
-            $this->closedAt = $data->closedAt;
-            $this->ccList = $data->cc;
-            $this->bccList = $data->bcc;
-            $this->tags = $data->tags;
+            $this->createdAt   = isset($data->createdAt) ? $data->createdAt : null;
+            $this->modifiedAt  = isset($data->modifiedAt) ? $data->modifiedAt : null;
+            $this->closedAt    = isset($data->closedAt) ? $data->closedAt : null;
+            $this->ccList      = isset($data->cc) ? $data->cc : null;
+            $this->bccList     = isset($data->bcc) ? $data->bcc : null;
+            $this->tags        = isset($data->tags) ? $data->tags : null;
 
             if ($data->closedBy) {
                 $this->closedBy = new \HelpScout\model\ref\PersonRef($data->closedBy);

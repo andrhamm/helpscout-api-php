@@ -13,12 +13,12 @@ class Mailbox {
 	
 	public function __construct($data=null) {		
 		if ($data) {			
-			$this->id         = $data->id;
-			$this->name       = $data->name;
-			$this->slug       = $data->slug;
-			$this->email      = $data->email;			
-			$this->createdAt  = $data->createdAt;
-			$this->modifiedAt = $data->modifiedAt;	
+			$this->id         = isset($data->id)         ? $data->id         : null;
+			$this->name       = isset($data->name)       ? $data->name       : null;
+			$this->slug       = isset($data->slug)       ? $data->slug       : null;
+			$this->email      = isset($data->email)      ? $data->email      : null;
+			$this->createdAt  = isset($data->createdAt)  ? $data->createdAt  : null;
+			$this->modifiedAt = isset($data->modifiedAt) ? $data->modifiedAt : null;
 		}	
 	}
 
