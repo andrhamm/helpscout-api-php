@@ -2,7 +2,7 @@
 namespace HelpScout\model;
 
 class Mailbox {
-	private $id = false;	
+	private $id = false;
 	private $name;
 	private $slug;
 	private $email;
@@ -11,15 +11,15 @@ class Mailbox {
 	
 	private $folders = false;
 	
-	public function __construct($data=null) {		
-		if ($data) {			
+	public function __construct($data=null) {
+		if ($data) {
 			$this->id         = isset($data->id)         ? $data->id         : null;
 			$this->name       = isset($data->name)       ? $data->name       : null;
 			$this->slug       = isset($data->slug)       ? $data->slug       : null;
 			$this->email      = isset($data->email)      ? $data->email      : null;
 			$this->createdAt  = isset($data->createdAt)  ? $data->createdAt  : null;
 			$this->modifiedAt = isset($data->modifiedAt) ? $data->modifiedAt : null;
-		}	
+		}
 	}
 
 	/**
@@ -179,5 +179,16 @@ class Mailbox {
 	 */
 	public function setModifiedAt($modifiedAt) {
 		$this->modifiedAt = $modifiedAt;
+	}
+    
+	/**
+	 * @return \HelpScout\model\ref\MailboxRef
+	 */
+	public function toRef() {
+		$ref = new \HelpScout\model\ref\MailboxRef();
+		$ref->setId($this->getId());
+		$ref->setName($this->getName());
+
+		return $ref;
 	}
 }
